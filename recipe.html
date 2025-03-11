@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="recipe.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Recipe Manager</title>
+</head>
+<body class="bg-black text-black flex">
+
+    <!-- Sidebar -->
+    <nav id="sidebar" class="bg-blue-600 text-white w-64 h-screen fixed top-0 left-0 transform -translate-x-full md:translate-x-0 transition-transform duration-300 shadow-lg">
+        <div class="p-6">
+            <h2 class="text-2xl font-bold mb-6">Recipe Manager</h2>
+            <ul class="space-y-4">
+                <li><a href="#dashboard" class="block py-2 px-3 hover:bg-blue-500 rounded">Dashboard</a></li>
+                <li><a href="#addRecipe" class="block py-2 px-3 hover:bg-blue-500 rounded">Add Recipe</a></li>
+                <li><a href="#search" class="block py-2 px-3 hover:bg-blue-500 rounded">Search</a></li>
+                <li><a href="#recipes" class="block py-2 px-3 hover:bg-blue-500 rounded">Recipes</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="flex-1 ml-0 md:ml-64 p-6">
+        
+        <!-- Header -->
+        <header class="bg-blue-600 text-white p-4 flex justify-between items-center rounded-lg shadow-md mb-4">
+            <button id="btn-h" class="text-2xl md:hidden focus:outline-none">☰</button>
+            <h1 id="fixed" class="text-xl font-bold">Welcome to Recipe Manager</h1>
+        </header>
+
+        <div class="container mx-auto">
+            
+            <!-- Dashboard -->
+            <section id="dashboard" class="bg-black p-6 rounded-lg shadow-md mb-6 text-white">
+                <h2 class="text-2xl font-bold mb-3">Dashboard</h2>
+                <p class="mb-4 text-gray-300">
+                    Manage all your favorite recipes in one place. Add, search, and organize effortlessly.
+                </p>
+                <div class="flex justify-between bg-gray-800 p-4 rounded-md">
+                    <p>Total Recipes: <span id="totalRecipes" class="font-bold">0</span></p>
+                    <p>Most Recent: <span id="recentRecipe" class="font-bold">None</span></p>
+                </div>
+            </section>
+
+            <!-- Two Column Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- Add Recipe -->
+                <section id="addRecipe" class="bg-black p-6 rounded-lg shadow-md text-white">
+                    <h2 class="text-2xl font-bold mb-3">Add Recipe</h2>
+                    <form id="addRecipeForm" class="space-y-4">
+                        <input type="text" id="title" placeholder="Recipe Title" required class="w-full p-3 border border-gray-700 bg-black text-white rounded-md focus:ring focus:ring-blue-300">
+                        <textarea id="ingredients" placeholder="Ingredients" required class="w-full p-3 border border-gray-700 bg-black text-white rounded-md focus:ring focus:ring-blue-300"></textarea>
+                        <textarea id="instructions" placeholder="Instructions" required class="w-full p-3 border border-gray-700 bg-black text-white rounded-md focus:ring focus:ring-blue-300"></textarea>
+                        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition">Add Recipe</button>
+                    </form>
+                </section>
+
+                <!-- Search Recipe -->
+                <section id="search" class="bg-black p-6 rounded-lg shadow-md text-white">
+                    <h2 class="text-2xl font-bold mb-3">Search Recipe</h2>
+                    <input type="text" id="searchQuery" placeholder="Search by title" class="w-full p-3 border border-gray-700 bg-black text-white rounded-md focus:ring focus:ring-blue-300 mb-3">
+                    <button id="searchButton" class="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition">Search</button>
+                </section>
+            </div>
+
+            <!-- Recipe List -->
+            <section id="recipes" class="bg-black p-6 rounded-lg shadow-md mt-6 text-black">
+                <h2 class="text-2xl font-bold mb-3">Recipe List</h2>
+                <div id="recipeList" class="space-y-3"></div>
+            </section>
+
+        </div>
+    </div>
+</body>
+<script src="recipe.js"></script>
+</html>
